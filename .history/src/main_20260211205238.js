@@ -1,7 +1,6 @@
 import './style.css'
 import * as THREE from 'three'
 import { addDefaultMeshes, addStandardMeshes } from './addDefaultMeshes'
-import { addLight } from './addLight'
 
 const scene = new THREE.Scene()
 //(FOV, ASPECT RATIO, NEAR, FAR)
@@ -23,9 +22,6 @@ function init() {
 	document.body.appendChild(renderer.domElement)
 	camera.position.z = 5
 
-	lights.default = addLight()
-	scene.add(lights.default)
-
 	//here we populate our meshes container
 	meshes.default = addDefaultMeshes()
 	meshes.default.position.x = 2
@@ -35,7 +31,6 @@ function init() {
 
 	//add meshes to our scene
 	scene.add(meshes.default)
-	scene.add(meshes.standard)
 
 	resize()
 	animate()
@@ -52,5 +47,4 @@ function animate() {
 	requestAnimationFrame(animate)
 	renderer.render(scene, camera)
 	meshes.default.rotation.x += 0.01
-	meshes.standard.rotation.y += 0.01
 }

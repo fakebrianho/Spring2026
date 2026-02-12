@@ -52,5 +52,4 @@ function animate() {
 	requestAnimationFrame(animate)
 	renderer.render(scene, camera)
 	meshes.default.rotation.x += 0.01
-	meshes.standard.rotation.y += 0.01
 }

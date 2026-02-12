@@ -36,7 +36,6 @@ function init() {
 	//add meshes to our scene
 	scene.add(meshes.default)
 	scene.add(meshes.standard)
-
 	resize()
 	animate()
 }
@@ -52,5 +51,4 @@ function animate() {
 	requestAnimationFrame(animate)
 	renderer.render(scene, camera)
 	meshes.default.rotation.x += 0.01
-	meshes.standard.rotation.y += 0.01
 }

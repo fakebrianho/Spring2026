@@ -23,9 +23,6 @@ function init() {
 	document.body.appendChild(renderer.domElement)
 	camera.position.z = 5
 
-	lights.default = addLight()
-	scene.add(lights.default)
-
 	//here we populate our meshes container
 	meshes.default = addDefaultMeshes()
 	meshes.default.position.x = 2
@@ -35,7 +32,6 @@ function init() {
 
 	//add meshes to our scene
 	scene.add(meshes.default)
-	scene.add(meshes.standard)
 
 	resize()
 	animate()
@@ -52,5 +48,4 @@ function animate() {
 	requestAnimationFrame(animate)
 	renderer.render(scene, camera)
 	meshes.default.rotation.x += 0.01
-	meshes.standard.rotation.y += 0.01
 }
