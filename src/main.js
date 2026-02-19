@@ -2,6 +2,7 @@ import './style.css'
 import * as THREE from 'three'
 import { addDefaultMeshes, addStandardMeshes } from './addDefaultMeshes'
 import { addLight } from './addLight'
+import Model from './model'
 
 const scene = new THREE.Scene()
 //(FOV, ASPECT RATIO, NEAR, FAR)
@@ -37,9 +38,23 @@ function init() {
 	scene.add(meshes.default)
 	scene.add(meshes.standard)
 
+	instances()
 	resize()
 	animate()
 }
+
+function instances() {
+	const flower = new Model({
+		url: './flowers.glb',
+		scene: scene,
+		meshes: meshes,
+		scale: new THREE.Vector3(2, 2, 2),
+		position: new THREE.Vector3(0, -0.8, 3),
+		replace: true,
+	})
+	flower.init()
+}
+
 function resize() {
 	window.addEventListener('resize', () => {
 		renderer.setSize(window.innerWidth, window.innerHeight)
